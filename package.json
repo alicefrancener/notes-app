@@ -1,0 +1,11 @@
+{
+  "name": "notes-app",
+  "version": "1.0.0",
+  "main": "app.js",
+  "repository": "git@github.com:alicefrancener/node-course.git",
+  "author": "Alice Francener <alicefrancener@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "yargs": "^16.2.0"
+  }
+}
