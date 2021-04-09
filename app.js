@@ -1,27 +1,44 @@
 const yargs = require("yargs");
-const {addNote} = require("./notes")
+const { addNote, removeNote } = require("./notes");
 
-yargs
-  .command(
-    "add",
-    "Add a new note",
-    (yargs) => {
-      yargs
-        .option("title", {
-          describe: "Note title",
-          string: true,
-          demandOption: true,
-        })
-        .option("body", {
-          describe: "Note body",
-          string: true,
-          demandOption: true,
-        });
-    },
-    (argv) => addNote(argv.title, argv.body)
-  )
-  .command("remove", "Remove a note", () => console.log("Removing a note..."))
-  .command("list", "List all notes", () => console.log("Listing all notes..."))
-  .command("read", "Read a specific note", () =>
-    console.log("Reading a specific note...")
-  ).argv;
+yargs.command(
+  "add",
+  "Add a new note",
+  (yargs) => {
+    yargs
+      .option("title", {
+        describe: "Note title",
+        string: true,
+        demandOption: true,
+      })
+      .option("body", {
+        describe: "Note body",
+        string: true,
+        demandOption: true,
+      });
+  },
+  (argv) => addNote(argv.title, argv.body)
+);
+
+yargs.command(
+  "remove",
+  "Remove a note",
+  (yargs) => {
+    yargs.option("title", {
+      describe: "Note title",
+      string: true,
+      demandOption: true,
+    });
+  },
+  (argv) => removeNote(argv.title)
+);
+
+yargs.command("list", "List all notes", () =>
+  console.log("Listing all notes...")
+);
+
+yargs.command("read", "Read a specific note", () =>
+  console.log("Reading a specific note...")
+);
+
+yargs.argv;
