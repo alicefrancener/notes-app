@@ -6,6 +6,7 @@
   "author": "Alice Francener <alicefrancener@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "chalk": "^4.1.0",
     "yargs": "^16.2.0"
   }
 }
