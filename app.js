@@ -1,4 +1,5 @@
 const yargs = require("yargs");
+const {addNote} = require("./notes")
 
 yargs
   .command(
@@ -17,7 +18,7 @@ yargs
           demandOption: true,
         });
     },
-    (argv) => console.log(`Title: ${argv.title}\nBody: ${argv.body}`)
+    (argv) => addNote(argv.title, argv.body)
   )
   .command("remove", "Remove a note", () => console.log("Removing a note..."))
   .command("list", "List all notes", () => console.log("Listing all notes..."))
