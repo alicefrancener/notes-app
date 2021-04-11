@@ -33,7 +33,7 @@ const listNotes = () => {
   const notes = loadNotes();
 
   if (notes.length === 0) {
-    console.log(chalk.red.inverse("There is no notes."));
+    console.log(chalk.red.inverse("There are no notes."));
   } else {
     console.log(chalk.inverse("Your notes:"));
     notes.forEach((note) => console.log("-", note.title));

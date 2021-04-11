@@ -1,5 +1,5 @@
 const yargs = require("yargs");
-const { addNote, removeNote, listNotes } = require("./notes");
+const { addNote, removeNote, listNotes, readNote } = require("./notes");
 
 yargs.command(
   "add",
@@ -35,8 +35,17 @@ yargs.command(
 
 yargs.command("list", "List all notes", () => listNotes());
 
-yargs.command("read", "Read a specific note", () =>
-  console.log("Reading a specific note...")
+yargs.command(
+  "read",
+  "Read a specific note",
+  (yargs) => {
+    yargs.option("title", {
+      describe: "Note title",
+      string: true,
+      demandOption: true,
+    });
+  },
+  (argv) => readNote(argv.title)
 );
 
 yargs.argv;
