@@ -31,14 +31,14 @@ const removeNote = (title) => {
 
 const listNotes = () => {
   const notes = loadNotes();
-  
-  if(notes.length === 0) {
-    console.log(chalk.red.inverse("There is no notes."))
+
+  if (notes.length === 0) {
+    console.log(chalk.red.inverse("There is no notes."));
   } else {
-    console.log(chalk.inverse("Your notes:"))
-    notes.forEach((note) => console.log('-', note.title));
+    console.log(chalk.inverse("Your notes:"));
+    notes.forEach((note) => console.log("-", note.title));
   }
-}
+};
 
 const saveNotes = (notes) => {
   const dataJSON = JSON.stringify(notes);
